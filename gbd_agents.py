@@ -275,7 +275,7 @@ class HighRiskTeam:
             sst_cots[role] = cot
             confidences[role] = self.calculate_confidence(prompt, text, role)
 
-        # Confidence & EU Check 
+       
         prod_c = math.prod(confidences.values())
         eu_stag = self.G_stag * prod_c
 
@@ -299,7 +299,7 @@ class HighRiskTeam:
             _, text = self.llms[role].generate(prompt, use_cot=True)
             set_outputs[role] = text
 
-        # Bottleneck Optimization Loop
+        
         max_iters = 3
         for it in range(max_iters):
             vecs = {role: bert_embedder.get_embedding(set_outputs[role]) for role in set_roles}
