@@ -1,0 +1,6 @@
+# Compose all config groups
+defaults:
+  - search: default
+  - orchestrate: default
+  - triage: default
+  - execution: default
